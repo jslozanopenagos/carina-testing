@@ -1,4 +1,4 @@
-package com.solvd.carinatesting.api.methods;
+package com.solvd.carinatesting.api.favourites;
 
 import com.zebrunner.carina.api.AbstractApiMethodV2;
 import com.zebrunner.carina.utils.config.Configuration;

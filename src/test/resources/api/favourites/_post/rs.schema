@@ -2,13 +2,8 @@
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
-    "message": {
-      "type": "string",
-      "enum": ["SUCCESS"]
-    },
-    "id": {
-      "type": "integer"
-    }
+    "message": { "type": "string" },
+    "id": { "type": "integer" }
   },
   "required": ["message", "id"]
 }

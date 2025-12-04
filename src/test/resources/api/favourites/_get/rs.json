@@ -1,13 +1,12 @@
 [
   {
-    "id": "regex:[0-9]+",
-    "user_id": "regex:[0-9]+",
-    "image_id": "type:String",
-    "sub_id": "skip",
-    "created_at": "type:String",
+    "id": 12345,
+    "image_id": "BJa4kxc4X",
+    "sub_id": "my-user-1234",
+    "created_at": "2020-06-11T18:15:18.000Z",
     "image": {
-      "id": "type:String",
-      "url": "regex:https?://[a-zA-Z0-9./_-]+"
+      "id": "BJa4kxc4X",
+      "url": "https://cdn2.thedogapi.com/images/BJa4kxc4X.jpg"
     }
   }
 ]

@@ -1,6 +1,10 @@
 [
   {
-    "id": "regex:[0-9]+",
-    "name": "type:String"
+    "id": 1,
+    "name": "Affenpinscher",
+    "temperament": "Stubborn, Curious, Playful, Adventurous, Active, Fun-loving",
+    "origin": "Germany, France",
+    "weight": { "imperial": "6 - 13", "metric": "3 - 6" },
+    "height": { "imperial": "9 - 11.5", "metric": "23 - 29" }
   }
 ]

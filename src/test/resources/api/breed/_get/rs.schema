@@ -4,6 +4,10 @@
   "items": {
     "type": "object",
     "properties": {
+      "id": { "type": "integer" },
+      "name": { "type": "string" },
+      "temperament": { "type": ["string", "null"] },
+      "origin": { "type": ["string", "null"] },
       "weight": {
         "type": "object",
         "properties": {
@@ -19,16 +23,8 @@
           "metric": { "type": "string" }
         },
         "required": ["imperial", "metric"]
-      },
-      "id": { "type": "integer" },
-      "name": { "type": "string" },
-      "bred_for": { "type": ["string", "null"] },
-      "breed_group": { "type": ["string", "null"] },
-      "life_span": { "type": "string" },
-      "temperament": { "type": ["string", "null"] },
-      "origin": { "type": ["string", "null"] },
-      "reference_image_id": { "type": ["string", "null"] }
+      }
     },
-    "required": ["weight", "height", "id", "name", "life_span"]
+    "required": ["id", "name"]
   }
 }
