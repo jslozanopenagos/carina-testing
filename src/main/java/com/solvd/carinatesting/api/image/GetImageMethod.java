@@ -2,20 +2,20 @@ package com.solvd.carinatesting.api.image;
 
 import com.zebrunner.carina.api.AbstractApiMethodV2;
 import com.zebrunner.carina.api.annotation.Endpoint;
-import com.zebrunner.carina.api.annotation.RequestTemplatePath;
+import com.zebrunner.carina.api.annotation.PathParam;
 import com.zebrunner.carina.api.annotation.ResponseTemplatePath;
 import com.zebrunner.carina.api.annotation.SuccessfulHttpStatus;
 import com.zebrunner.carina.api.http.HttpMethodType;
 import com.zebrunner.carina.api.http.HttpResponseStatusType;
 import com.zebrunner.carina.utils.config.Configuration;
 
-@Endpoint(url = "${api_url}/v1/images/search", methodType = HttpMethodType.GET)
-@RequestTemplatePath(path = "api/images/_search/rq.json")
-@ResponseTemplatePath(path = "api/images/_search/rs.json")
+@Endpoint(url = "${api_url}/v1/images/${image_id}", methodType = HttpMethodType.GET)
+@ResponseTemplatePath(path = "api/images/_get/rs.json")
 @SuccessfulHttpStatus(status = HttpResponseStatusType.OK_200)
-public class SearchImagesMethod extends AbstractApiMethodV2 {
+public class GetImageMethod extends AbstractApiMethodV2 {
 
-    public SearchImagesMethod() {
+    public GetImageMethod(String imageId) {
         replaceUrlPlaceholder("api_url", Configuration.getRequired("api_url"));
+        replaceUrlPlaceholder("image_id", imageId);
     }
 }
