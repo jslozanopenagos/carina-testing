@@ -1,0 +1,6 @@
+[
+  {
+    "id": "regex:[0-9]+",
+    "name": "type:String"
+  }
+]

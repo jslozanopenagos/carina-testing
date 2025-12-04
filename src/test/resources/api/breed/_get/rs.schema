@@ -1,0 +1,34 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "weight": {
+        "type": "object",
+        "properties": {
+          "imperial": { "type": "string" },
+          "metric": { "type": "string" }
+        },
+        "required": ["imperial", "metric"]
+      },
+      "height": {
+        "type": "object",
+        "properties": {
+          "imperial": { "type": "string" },
+          "metric": { "type": "string" }
+        },
+        "required": ["imperial", "metric"]
+      },
+      "id": { "type": "integer" },
+      "name": { "type": "string" },
+      "bred_for": { "type": ["string", "null"] },
+      "breed_group": { "type": ["string", "null"] },
+      "life_span": { "type": "string" },
+      "temperament": { "type": ["string", "null"] },
+      "origin": { "type": ["string", "null"] },
+      "reference_image_id": { "type": ["string", "null"] }
+    },
+    "required": ["weight", "height", "id", "name", "life_span"]
+  }
+}

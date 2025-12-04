@@ -1,0 +1,13 @@
+[
+  {
+    "id": "regex:[0-9]+",
+    "user_id": "regex:[0-9]+",
+    "image_id": "type:String",
+    "sub_id": "skip",
+    "created_at": "type:String",
+    "image": {
+      "id": "type:String",
+      "url": "regex:https?://[a-zA-Z0-9./_-]+"
+    }
+  }
+]
