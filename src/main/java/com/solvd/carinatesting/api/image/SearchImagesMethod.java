@@ -9,13 +9,12 @@ import com.zebrunner.carina.api.http.HttpMethodType;
 import com.zebrunner.carina.api.http.HttpResponseStatusType;
 import com.zebrunner.carina.utils.config.Configuration;
 
-@Endpoint(url = "${api_url}/v1/images/search", methodType = HttpMethodType.GET)
-@RequestTemplatePath(path = "api/images/_search/rq.json")
+@Endpoint(url = "${base_url}/images/search?limit=1", methodType = HttpMethodType.GET)
 @ResponseTemplatePath(path = "api/images/_search/rs.json")
 @SuccessfulHttpStatus(status = HttpResponseStatusType.OK_200)
 public class SearchImagesMethod extends AbstractApiMethodV2 {
 
     public SearchImagesMethod() {
-        replaceUrlPlaceholder("api_url", Configuration.getRequired("api_url"));
+        replaceUrlPlaceholder("base_url", Configuration.getRequired("api_url"));
     }
 }
