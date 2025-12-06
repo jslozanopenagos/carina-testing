@@ -1,41 +1,42 @@
 package com.solvd.carinatesting.api.declarative;
 
 import com.zebrunner.carina.api.AbstractApiMethodV2;
-import com.zebrunner.carina.api.annotation.EndpointTemplate;
-import com.zebrunner.carina.api.annotation.PathParam;
-import com.zebrunner.carina.api.annotation.RequestTemplatePath;
-import com.zebrunner.carina.api.annotation.ResponseTemplatePath;
-import com.zebrunner.carina.api.annotation.SuccessfulHttpStatus;
-import com.zebrunner.carina.api.annotation.method.DeleteMethod;
-import com.zebrunner.carina.api.annotation.method.GetMethod;
-import com.zebrunner.carina.api.annotation.method.PostMethod;
+import com.zebrunner.carina.api.annotation.*;
+import com.zebrunner.carina.api.annotation.method.*;
 import com.zebrunner.carina.api.http.HttpResponseStatusType;
 
-@EndpointTemplate(url = "${api_url}")
+@EndpointTemplate(url = "${base_url}")
 public interface IDogApi {
 
-    @GetMethod(url = "/v1/breeds")
-    @ResponseTemplatePath(path = "api/breeds/_get/rs.json")
+    @GetMethod(url = "/breeds")
+    @ResponseTemplatePath(path = "api/breed/_get/rs.json")
     @SuccessfulHttpStatus(status = HttpResponseStatusType.OK_200)
     AbstractApiMethodV2 getBreeds();
 
-    @GetMethod(url = "/v1/images/${id}")
+    @GetMethod(url = "/images/search?limit=1")
+    @ResponseTemplatePath(path = "api/images/_search/rs.json")
+    @SuccessfulHttpStatus(status = HttpResponseStatusType.OK_200)
+    AbstractApiMethodV2 searchImages();
+
+    @GetMethod(url = "/images/${id}")
     @ResponseTemplatePath(path = "api/images/_get/rs.json")
     @SuccessfulHttpStatus(status = HttpResponseStatusType.OK_200)
     AbstractApiMethodV2 getImageById(@PathParam(key = "id") String id);
 
-    @GetMethod(url = "/v1/favourites")
-    @ResponseTemplatePath(path = "api/favourites/_get/rs.json")
-    @SuccessfulHttpStatus(status = HttpResponseStatusType.OK_200)
-    AbstractApiMethodV2 getFavourites();
-
-    @PostMethod(url = "/v1/favourites")
+    @PostMethod(url = "/favourites")
     @RequestTemplatePath(path = "api/favourites/_post/rq.json")
     @ResponseTemplatePath(path = "api/favourites/_post/rs.json")
     @SuccessfulHttpStatus(status = HttpResponseStatusType.CREATED_201)
     AbstractApiMethodV2 postFavourite();
 
-    @DeleteMethod(url = "/v1/favourites/${id}")
-    @SuccessfulHttpStatus(status = HttpResponseStatusType.NO_CONTENT_204)
+    @GetMethod(url = "/favourites")
+    @ResponseTemplatePath(path = "api/favourites/_get/rs.json")
+    @SuccessfulHttpStatus(status = HttpResponseStatusType.OK_200)
+    AbstractApiMethodV2 getFavourites();
+
+    @DeleteMethod(url = "/favourites/${id}")
+    @RequestTemplatePath(path = "api/favourites/_delete/rq.json")
+    @ResponseTemplatePath(path = "api/favourites/_delete/rs.json")
+    @SuccessfulHttpStatus(status = HttpResponseStatusType.OK_200)
     AbstractApiMethodV2 deleteFavourite(@PathParam(key = "id") String id);
 }

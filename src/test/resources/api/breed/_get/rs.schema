@@ -25,6 +25,7 @@
         "required": ["imperial", "metric"]
       }
     },
-    "required": ["id", "name"]
+    "required": ["id", "name"],
+    "additionalProperties": true
   }
 }

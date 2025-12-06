@@ -1,7 +1,9 @@
 [
   {
-    "id": "BJa4kxc4X",
-    "url": "https://cdn.thedogapi.com/images/BJa4kxc4X.jpg",
-    "breeds": []
+    "id": "@ignore@",
+    "url": "@ignore@",
+    "width": "@optional@",
+    "height": "@optional@",
+    "breeds": "@optional@"
   }
 ]
