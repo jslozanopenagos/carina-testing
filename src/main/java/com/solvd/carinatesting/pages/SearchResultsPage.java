@@ -1,4 +1,4 @@
-package com.solvd.carinatesting.gui.pages;
+package com.solvd.carinatesting.pages;
 
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
 import com.zebrunner.carina.webdriver.gui.AbstractPage;
@@ -18,12 +18,20 @@ public class SearchResultsPage extends AbstractPage {
         super(driver);
     }
 
-    public int getResultsCount() {
-        return resultItems.size();
+    public boolean isPageOpened() {
+        return getDriver().getCurrentUrl().contains("/find");
     }
 
     public boolean hasResults() {
         return !resultItems.isEmpty();
+    }
+
+    public boolean isNoResultsPage() {
+        return getDriver().getCurrentUrl().contains("/find/?q=");
+    }
+
+    public int getResultsCount() {
+        return resultItems != null ? resultItems.size() : 0;
     }
 
     public List<String> getAllTitles() {
@@ -32,29 +40,26 @@ public class SearchResultsPage extends AbstractPage {
                 .collect(Collectors.toList());
     }
 
-    private String extractTitle(ExtendedWebElement li) {
-        ExtendedWebElement title =
-                li.findExtendedWebElement(By.xpath(".//h3[@class='ipc-title__text']"));
-
-        return title.getText();
-    }
-
     public MoviePage openFirstResult() {
         return openResultByIndex(0);
     }
 
     public MoviePage openResultByIndex(int index) {
         ExtendedWebElement li = resultItems.get(index);
-
         String movieTitle = extractTitle(li);
 
         ExtendedWebElement clickable =
                 li.findExtendedWebElement(By.xpath(".//a[contains(@class,'ipc-title-link-wrapper')]"));
-
         clickable.click();
 
         MoviePage moviePage = new MoviePage(getDriver());
         moviePage.setExpectedTitle(movieTitle);
         return moviePage;
+    }
+
+    private String extractTitle(ExtendedWebElement li) {
+        ExtendedWebElement title =
+                li.findExtendedWebElement(By.xpath(".//h3[@class='ipc-title__text']"));
+        return title.getText();
     }
 }

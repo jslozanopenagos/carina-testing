@@ -1,4 +1,4 @@
-package com.solvd.carinatesting.gui.pages;
+package com.solvd.carinatesting.pages;
 
 import com.zebrunner.carina.webdriver.gui.AbstractPage;
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
@@ -28,5 +28,10 @@ public class HomePage extends AbstractPage {
         searchButton.scrollTo();
         searchButton.click();
         return new SearchResultsPage(getDriver());
+    }
+
+    public boolean isEmptySearchPageDisplayed() {
+        String currentUrl = getDriver().getCurrentUrl();
+        return currentUrl.contains("/find/?q=");
     }
 }
