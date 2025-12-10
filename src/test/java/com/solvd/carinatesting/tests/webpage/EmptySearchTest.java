@@ -10,7 +10,7 @@ public class EmptySearchTest implements IAbstractTest {
 
     @Test
     @MethodOwner(owner = "imdb test")
-    public void testEmptySearchShowsPage() {
+    public void verifyEmptySearchShowsPageTest() {
         HomePage homePage = new HomePage(getDriver());
         homePage.open();
         Assert.assertTrue(homePage.isPageOpened(), "Home page failed to open");

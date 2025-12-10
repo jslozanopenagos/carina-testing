@@ -12,7 +12,7 @@ public class MainSearchTest implements IAbstractTest {
 
     @Test
     @MethodOwner(owner = "imdb test")
-    public void verifySearchAndOpenMovie() {
+    public void verifySearchAndOpenMovieTest() {
         HomePage homePage = new HomePage(getDriver());
         homePage.open();
         Assert.assertTrue(homePage.isPageOpened(), "Home page is not opened!");
