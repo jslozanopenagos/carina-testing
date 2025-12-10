@@ -21,7 +21,7 @@ public class HomePage extends AbstractPage {
     @FindBy(xpath = "//div[contains(@class,'announcement-widget--title')]//h3[text()='Best Of 2025']")
     private ExtendedWebElement bestOf2025;
 
-    @FindBy(xpath = "//div[contains(@class,'popular-celebrities-title')]")
+    @FindBy(xpath = "//div[contains(@class,'popular-celebrities-title')]//a")
     private ExtendedWebElement popularCelebrities;
 
     @FindBy(xpath = "//div[@data-testid='subsection-title']//a[contains(@href,'/what-to-watch/top-picks')]")
@@ -78,5 +78,29 @@ public class HomePage extends AbstractPage {
         topBoxOfficeLink.scrollTo();
         topBoxOfficeLink.click();
         return new BoxOfficePage(getDriver());
+    }
+
+    public CelebrityPage openPopularCelebrity() {
+        popularCelebrities.scrollTo();
+        popularCelebrities.click();
+        return new CelebrityPage(getDriver());
+    }
+
+    public TopPickPage openTopPick() {
+        topPicks.scrollTo();
+        topPicks.click();
+        return new TopPickPage(getDriver());
+    }
+
+    public MovieDetailsPage openFanFavoriteMovie() {
+        fanFavorites.scrollTo();
+        fanFavorites.click();
+        return new MovieDetailsPage(getDriver());
+    }
+
+    public MovieDetailsPage openInTheaterMovie() {
+        inTheaters.scrollTo();
+        inTheaters.click();
+        return new MovieDetailsPage(getDriver());
     }
 }
