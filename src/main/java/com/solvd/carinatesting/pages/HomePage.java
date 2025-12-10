@@ -69,12 +69,6 @@ public class HomePage extends AbstractPage {
         return scrollAndClick(sections, topBoxOfficeLink, BoxOfficePage.class);
     }
 
-    public TopPickPage openTopPick() {
-        ExtendedWebElement[] sectionsToScroll = {bestOf2025, popularCelebrities, topPicks};
-        return scrollAndClick(sectionsToScroll, topPicks, TopPickPage.class);
-    }
-
-
     public CelebrityPage openPopularCelebrity() {
         popularCelebrities.scrollTo();
         popularCelebrities.click();
@@ -88,10 +82,9 @@ public class HomePage extends AbstractPage {
         return scrollAndClick(sectionsToScroll, fanFavorites, FanFavoritesPage.class);
     }
 
-    public MovieDetailsPage openInTheaterMovie() {
-        inTheaters.scrollTo();
-        inTheaters.click();
-        return new MovieDetailsPage(getDriver());
+    public Top10IMDbPage scrollToTop10IMDb() {
+        ExtendedWebElement[] sectionsToScroll = {bestOf2025, popularCelebrities, topPicks};
+        return scrollAndClick(sectionsToScroll, top10IMDb, Top10IMDbPage.class);
     }
 
     private <T> T scrollAndClick(ExtendedWebElement[] sectionsToScroll, ExtendedWebElement elementToClick, Class<T> pageClass) {
