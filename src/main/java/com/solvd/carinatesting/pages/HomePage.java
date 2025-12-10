@@ -66,19 +66,14 @@ public class HomePage extends AbstractPage {
     public BoxOfficePage openTopBoxOffice() {
         ExtendedWebElement[] sections = {bestOf2025, popularCelebrities, topPicks, top10IMDb, fanFavorites,
                 popularInterests, streamingPicksTab, inTheaters};
-
-        for (ExtendedWebElement section : sections) {
-            if (section.isElementPresent()) {
-                section.scrollTo();
-            }
-        }
-
-        topBoxOfficeLink.waitUntil(ExpectedConditions.visibilityOf(topBoxOfficeLink.getElement()), 3);
-        topBoxOfficeLink.waitUntil(ExpectedConditions.elementToBeClickable(topBoxOfficeLink.getElement()), 3);
-        topBoxOfficeLink.scrollTo();
-        topBoxOfficeLink.click();
-        return new BoxOfficePage(getDriver());
+        return scrollAndClick(sections, topBoxOfficeLink, BoxOfficePage.class);
     }
+
+    public TopPickPage openTopPick() {
+        ExtendedWebElement[] sectionsToScroll = {bestOf2025, popularCelebrities, topPicks};
+        return scrollAndClick(sectionsToScroll, topPicks, TopPickPage.class);
+    }
+
 
     public CelebrityPage openPopularCelebrity() {
         popularCelebrities.scrollTo();
@@ -86,16 +81,11 @@ public class HomePage extends AbstractPage {
         return new CelebrityPage(getDriver());
     }
 
-    public TopPickPage openTopPick() {
-        topPicks.scrollTo();
-        topPicks.click();
-        return new TopPickPage(getDriver());
-    }
-
-    public MovieDetailsPage openFanFavoriteMovie() {
-        fanFavorites.scrollTo();
-        fanFavorites.click();
-        return new MovieDetailsPage(getDriver());
+    public FanFavoritesPage openFanFavoritesSection() {
+        ExtendedWebElement[] sectionsToScroll = {bestOf2025, popularCelebrities,
+                topPicks, top10IMDb, popularInterests
+        };
+        return scrollAndClick(sectionsToScroll, fanFavorites, FanFavoritesPage.class);
     }
 
     public MovieDetailsPage openInTheaterMovie() {
@@ -103,4 +93,26 @@ public class HomePage extends AbstractPage {
         inTheaters.click();
         return new MovieDetailsPage(getDriver());
     }
+
+    private <T> T scrollAndClick(ExtendedWebElement[] sectionsToScroll, ExtendedWebElement elementToClick, Class<T> pageClass) {
+        for (ExtendedWebElement section : sectionsToScroll) {
+            if (section.isElementPresent()) {
+                section.scrollTo();
+            }
+        }
+
+        elementToClick.scrollTo();
+
+        elementToClick.waitUntil(ExpectedConditions.visibilityOf(elementToClick.getElement()), 5);
+        elementToClick.waitUntil(ExpectedConditions.elementToBeClickable(elementToClick.getElement()), 5);
+
+        elementToClick.click();
+
+        try {
+            return pageClass.getDeclaredConstructor(WebDriver.class).newInstance(getDriver());
+        } catch (Exception e) {
+            throw new RuntimeException("Failed to instantiate page: " + pageClass.getSimpleName(), e);
+        }
+    }
+
 }
