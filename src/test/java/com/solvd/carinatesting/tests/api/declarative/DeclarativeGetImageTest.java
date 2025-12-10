@@ -1,4 +1,4 @@
-package com.solvd.carinatesting.tests.declarative;
+package com.solvd.carinatesting.tests.api.declarative;
 
 import com.solvd.carinatesting.api.declarative.IDogApi;
 import com.zebrunner.carina.api.AbstractApiMethodV2;
