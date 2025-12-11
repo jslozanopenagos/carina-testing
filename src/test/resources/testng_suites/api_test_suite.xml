@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Dog API Test Suite" verbose="1">
+    <test name="Annotation-Based API Tests" preserve-order="true">
+        <classes>
+            <!-- Read-only GET operations - no API key restrictions -->
+            <class name="com.solvd.carinatesting.tests.api.annotation.GetBreedsTest"/>
+            <class name="com.solvd.carinatesting.tests.api.annotation.GetImageTest"/>
+            <class name="com.solvd.carinatesting.tests.api.annotation.SearchImagesTest"/>
+            
+            <!-- Favourites read operations - requires API key -->
+            <class name="com.solvd.carinatesting.tests.api.annotation.GetFavouritesTest"/>
+            
+            <!-- Favourites write operations - requires paid API key (may skip with free key) -->
+            <class name="com.solvd.carinatesting.tests.api.annotation.PostFavouriteTest"/>
+            <class name="com.solvd.carinatesting.tests.api.annotation.DeleteFavouriteTest"/>
+        </classes>
+    </test>
+    
+    <test name="Declarative API Tests" preserve-order="true">
+        <classes>
+            <!-- Read-only GET operations - no API key restrictions -->
+            <class name="com.solvd.carinatesting.tests.api.declarative.DeclarativeGetBreedsTest"/>
+            <class name="com.solvd.carinatesting.tests.api.declarative.DeclarativeGetImageTest"/>
+            <class name="com.solvd.carinatesting.tests.api.declarative.DeclarativeSearchImagesTest"/>
+            
+            <!-- Favourites read operations - requires API key -->
+            <class name="com.solvd.carinatesting.tests.api.declarative.DeclarativeGetFavouritesTest"/>
+            
+            <!-- Favourites write operations - requires paid API key (may skip with free key) -->
+            <class name="com.solvd.carinatesting.tests.api.declarative.DeclarativePostFavouriteTest"/>
+            <class name="com.solvd.carinatesting.tests.api.declarative.DeclarativeDeleteFavouriteTest"/>
+        </classes>
+    </test>
+</suite>

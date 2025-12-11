@@ -12,7 +12,7 @@ public class InTheaterSectionTest implements IAbstractTest {
     private static final Logger LOGGER = LogManager.getLogger(InTheaterSectionTest.class);
 
     @Test
-    public void verifyInTheatersSection() {
+    public void verifyInTheatersSectionTest() {
         HomePage homePage = new HomePage(getDriver());
         homePage.open();
         Assert.assertTrue(homePage.isPageOpened(), "Homepage should be opened");

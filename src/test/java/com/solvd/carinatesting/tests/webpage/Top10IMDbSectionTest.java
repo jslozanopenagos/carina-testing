@@ -14,7 +14,7 @@ public class Top10IMDbSectionTest implements IAbstractTest {
 
     @Test
     @MethodOwner(owner = "IMDB test")
-    public void verifyTop10IMDbNavigation() {
+    public void verifyTop10IMDbNavigationTest() {
         HomePage home = new HomePage(getDriver());
         home.open();
         Assert.assertTrue(home.isPageOpened(), "Homepage should be opened");

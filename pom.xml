@@ -18,6 +18,7 @@
     <carina-dataprovider.version>1.2.4</carina-dataprovider.version>
     <carina-api.version>1.2.4</carina-api.version>
     <log4j.version>2.23.1</log4j.version>
+    <suite>testng_suites/testng.xml</suite>
   </properties>
 
   <dependencies>
@@ -79,9 +80,8 @@
         <version>3.2.5</version>
         <configuration>
           <suiteXmlFiles>
-            <suiteXmlFile>src/test/resources/testng-suites/testng.xml</suiteXmlFile>
+            <suiteXmlFile>src/test/resources/${suite}</suiteXmlFile>
           </suiteXmlFiles>
-          <testFailureIgnore>false</testFailureIgnore>
         </configuration>
       </plugin>
     </plugins>
