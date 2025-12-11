@@ -39,7 +39,10 @@ public class HomePage extends AbstractPage {
     @FindBy(xpath = "//div[@data-testid='feature-row-streaming-picks']//ul[@role='tablist']//li[@role='tab' and @aria-selected='true']")
     private ExtendedWebElement streamingPicksTab;
 
-    @FindBy(xpath = "//div[@data-testid='subsection-title' and descendant::a[contains(@href,'/showtimes')]]")
+    @FindBy(xpath = "//div[@data-testid='exploreMoviesAndTv_title']")
+    private ExtendedWebElement exploreMoviesAndTv;
+
+    @FindBy(xpath = "//div[@data-testid='subsection-title']//a[contains(@href,'/showtimes')]")
     private ExtendedWebElement inTheaters;
 
     public HomePage(WebDriver driver) {
@@ -87,6 +90,13 @@ public class HomePage extends AbstractPage {
         return scrollAndClick(sectionsToScroll, top10IMDb, Top10IMDbPage.class);
     }
 
+    public InTheatersPage scrollToInTheatersSection() {
+        ExtendedWebElement[] sectionsToScroll = {bestOf2025, popularCelebrities, topPicks, top10IMDb, fanFavorites,
+                popularInterests, streamingPicksTab, exploreMoviesAndTv};
+
+        return scrollAndClick(sectionsToScroll, inTheaters, InTheatersPage.class);
+    }
+
     private <T> T scrollAndClick(ExtendedWebElement[] sectionsToScroll, ExtendedWebElement elementToClick, Class<T> pageClass) {
         for (ExtendedWebElement section : sectionsToScroll) {
             if (section.isElementPresent()) {
@@ -96,8 +106,8 @@ public class HomePage extends AbstractPage {
 
         elementToClick.scrollTo();
 
-        elementToClick.waitUntil(ExpectedConditions.visibilityOf(elementToClick.getElement()), 5);
-        elementToClick.waitUntil(ExpectedConditions.elementToBeClickable(elementToClick.getElement()), 5);
+        elementToClick.waitUntil(ExpectedConditions.visibilityOf(elementToClick.getElement()), 6);
+        elementToClick.waitUntil(ExpectedConditions.elementToBeClickable(elementToClick.getElement()), 6);
 
         elementToClick.click();
 
