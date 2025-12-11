@@ -1,4 +1,4 @@
-package com.solvd.carinatesting.tests.annotation;
+package com.solvd.carinatesting.tests.api.annotation;
 
 import com.solvd.carinatesting.api.favourites.DeleteFavouriteMethod;
 import com.solvd.carinatesting.api.favourites.PostFavouriteMethod;

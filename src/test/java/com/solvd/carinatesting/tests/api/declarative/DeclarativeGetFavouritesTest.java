@@ -1,4 +1,4 @@
-package com.solvd.carinatesting.tests.declarative;
+package com.solvd.carinatesting.tests.api.declarative;
 
 import com.solvd.carinatesting.api.declarative.IDogApi;
 import com.solvd.carinatesting.utils.ApiUtils;
@@ -10,20 +10,18 @@ import com.zebrunner.carina.utils.config.Configuration;
 import org.testng.SkipException;
 import org.testng.annotations.Test;
 
-public class DeclarativePostFavouriteTest implements IAbstractTest {
+public class DeclarativeGetFavouritesTest implements IAbstractTest {
 
-    @Test(description = "Declarative test: POST /favourites adds a favourite")
+    @Test(description = "Declarative test: GET /favourites retrieves all favourites")
     @MethodOwner(owner = "declarative-test")
-    public void verifyPostFavouriteTest() {
+    public void verifyGetFavouriteTest() {
         if (ApiUtils.isFreeApiKey()) {
             throw new SkipException("Skipping test because free API key cannot perform this action.");
         }
 
         IDogApi apiTemplate = TemplateFactory.prepareTemplate(IDogApi.class);
-        AbstractApiMethodV2 apiMethod = apiTemplate.postFavourite();
-        apiMethod.setProperties("api/favourites/favourite.properties");
+        AbstractApiMethodV2 apiMethod = apiTemplate.getFavourites();
         apiMethod.replaceUrlPlaceholder("base_url", Configuration.getRequired("api_url"));
-
         apiMethod.callAPIExpectSuccess();
         apiMethod.validateResponse();
     }

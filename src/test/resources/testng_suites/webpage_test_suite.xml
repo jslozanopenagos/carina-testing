@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="IMDb Webpage Test Suite" verbose="1">
+    <test name="Search Functionality Tests" preserve-order="true">
+        <classes>
+            <!-- Basic search functionality -->
+            <class name="com.solvd.carinatesting.tests.webpage.MainSearchTest"/>
+            <class name="com.solvd.carinatesting.tests.webpage.SearchResultsNotEmptyTest"/>
+            
+            <!-- Edge case search tests -->
+            <class name="com.solvd.carinatesting.tests.webpage.EmptySearchTest"/>
+            <class name="com.solvd.carinatesting.tests.webpage.SearchSpecialCharactersTest"/>
+        </classes>
+    </test>
+    
+    <test name="Navigation Tests" preserve-order="true">
+        <classes>
+            <!-- Homepage section navigation -->
+            <class name="com.solvd.carinatesting.tests.webpage.FanFavoriteNavigationTest"/>
+            <class name="com.solvd.carinatesting.tests.webpage.InTheaterSectionTest"/>
+            <class name="com.solvd.carinatesting.tests.webpage.Top10IMDbSectionTest"/>
+            <class name="com.solvd.carinatesting.tests.webpage.TopBoxOfficeTest"/>
+        </classes>
+    </test>
+    
+    <test name="Content Verification Tests" preserve-order="true">
+        <classes>
+            <!-- Movie and celebrity content validation -->
+            <class name="com.solvd.carinatesting.tests.webpage.MovieMetadataTest"/>
+            <class name="com.solvd.carinatesting.tests.webpage.PopularCelebrityTest"/>
+        </classes>
+    </test>
+</suite>
