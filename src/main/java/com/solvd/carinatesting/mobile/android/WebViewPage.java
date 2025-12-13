@@ -24,6 +24,8 @@ public class WebViewPage extends WebViewPageBase {
     @FindBy(xpath = "//android.widget.Button[@content-desc='clearBtn']")
     private ExtendedWebElement clearUrlButton;
 
+    private static final String DEFAULT_URL = "https://appiumpro.com";
+
     public WebViewPage(WebDriver webDriver){
         super(webDriver);
     }
@@ -39,13 +41,8 @@ public class WebViewPage extends WebViewPageBase {
     }
 
     @Override
-    public void tapGoUrlbutton(){
+    public void tapGoUrlButton(){
         goUrlButton.click();
-    }
-
-    @Override
-    public boolean isWebContentDisplayed(){
-        return webView.isElementPresent(10);
     }
 
     @Override
@@ -56,5 +53,13 @@ public class WebViewPage extends WebViewPageBase {
     @Override
     public void tapClearButton(){
         clearUrlButton.click();
+    }
+
+    public boolean isUrlResetToDefault() {
+        return urlField.getText().equals(DEFAULT_URL);
+    }
+
+    public boolean isUrlDifferentFrom(String value) {
+        return !urlField.getText().equals(value);
     }
 }

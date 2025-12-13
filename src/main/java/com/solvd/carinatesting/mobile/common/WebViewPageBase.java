@@ -13,8 +13,9 @@ public abstract class WebViewPageBase extends AbstractPage {
 
     public abstract boolean isPageOpened();
     public abstract void typeUrl(String url);
-    public abstract void tapGoUrlbutton();
-    public abstract boolean isWebContentDisplayed();
+    public abstract void tapGoUrlButton();
     public abstract boolean isWebAlertDisplayed();
     public abstract void tapClearButton();
+    public abstract boolean isUrlResetToDefault();
+    public abstract boolean isUrlDifferentFrom(String value);
 }

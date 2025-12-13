@@ -28,8 +28,6 @@ public class EchoPageTest implements IAbstractTest {
 
         Assert.assertTrue(echoPage.isMessageDisplayed(), "Echo message is not displayed");
 
-        LOGGER.info("Echo page opened");
-
-
+        LOGGER.info("Echo message displayed");
     }
 }
