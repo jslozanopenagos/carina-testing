@@ -27,7 +27,7 @@ public class LoginScreen extends LoginScreenBase {
 
     @Override
     public boolean isPageOpened() {
-        return usernameField.isElementPresent(5);
+        return usernameField.isElementPresent(2);
     }
 
     @Override
