@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="TheApp Mobile Test Suite" verbose="1">
+    <test name="Basic Navigation Tests" preserve-order="true">
+        <classes>
+            <!-- Verify app launches and home page is accessible -->
+            <class name="com.solvd.carinatesting.tests.mobile.HomePageTest"/>
+        </classes>
+    </test>
+    
+    <test name="Authentication Tests" preserve-order="true">
+        <classes>
+            <!-- Login functionality with valid and invalid credentials -->
+            <class name="com.solvd.carinatesting.tests.mobile.LogintPageTest"/>
+        </classes>
+    </test>
+    
+    <test name="Interactive Feature Tests" preserve-order="true">
+        <classes>
+            <!-- Echo box functionality -->
+            <class name="com.solvd.carinatesting.tests.mobile.EchoPageTest"/>
+            
+            <!-- List demo interactions -->
+            <class name="com.solvd.carinatesting.tests.mobile.ListDemoPageTest"/>
+            
+            <!-- Photo selection and display -->
+            <class name="com.solvd.carinatesting.tests.mobile.PhotoDemoPageTest"/>
+        </classes>
+    </test>
+    
+    <test name="WebView Tests" preserve-order="true">
+        <classes>
+            <!-- WebView URL validation and navigation -->
+            <class name="com.solvd.carinatesting.tests.mobile.WebViewTest"/>
+        </classes>
+    </test>
+</suite>
