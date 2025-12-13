@@ -4,10 +4,13 @@ import com.solvd.carinatesting.mobile.common.HomePageBase;
 import com.solvd.carinatesting.mobile.common.WebViewPageBase;
 import com.zebrunner.carina.core.IAbstractTest;
 import com.zebrunner.carina.core.registrar.ownership.MethodOwner;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class WebViewTest implements IAbstractTest {
+    private static final Logger LOGGER = LogManager.getLogger(WebViewTest.class);
 
     @Test
     @MethodOwner(owner = "TheApp mobile android test")
@@ -25,6 +28,7 @@ public class WebViewTest implements IAbstractTest {
 
         Assert.assertFalse(webViewPage.isWebAlertDisplayed(),
                 "Web alert WAS displayed for a valid URL");
+        LOGGER.info("verifyWebViewValidUrlTest passed");
     }
 
     @Test
@@ -41,6 +45,7 @@ public class WebViewTest implements IAbstractTest {
         webViewPage.typeUrl("https://appiumpro.c");
         webViewPage.tapGoUrlButton();
         Assert.assertTrue(webViewPage.isWebAlertDisplayed(), "Web alert was not displayed");
+        LOGGER.info("verifyWebViewInValidUrlTest passed");
     }
 
     @Test
@@ -69,5 +74,6 @@ public class WebViewTest implements IAbstractTest {
                 webViewPage.isUrlResetToDefault(),
                 "URL was NOT reset to default after pressing Clear button"
         );
+        LOGGER.info("verifyClearButtonResetsUrlToDefaultTest passed");
     }
 }
